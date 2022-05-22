@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+
+class Food
+{
+public:
+    double cal;
+    double weight;
+    Food(double cal,double weight)
+    {
+        this->cal = cal;
+        this->weight = weight;
+    };
+    Food& eat (double e)
+    {
+        weight = weight - e;
+    }
+};
+class Drink
+{
+public:
+    double volume;
+    double taste;
+    Drink(double volume, double taste)
+    {
+        this->volume = volume;
+        this->taste = taste;
+    }
+    Drink& drink (double d)
+    {
+        volume = volume - d;
+    }
+};
+
+class Dinner : public Food, public Drink
+{
+public:
+    Dinner(double cal,double weight, double volume):Food(cal, weight), Drink(volume, 0)
+    {
+    }
+};
